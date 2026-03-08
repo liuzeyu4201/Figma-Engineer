@@ -16,7 +16,7 @@
   - [Step 3: 代码检查](#step-3-代码检查)
 - [示例](#示例)
 - [常见问题](#常见问题)
-
+- [快速使用](#安装)
 ---
 
 ## 概述
@@ -253,3 +253,30 @@ $work_dir/
 - 严格按照 meta.json 中的布局、样式、间距等信息实现
 - 使用 Dev Mode 检查设计细节
 - 确保像素级别的视觉对等
+
+# 安装
+通过npm安装器安装
+```
+npm i figma-enginner-installer
+```
+## 安装前请先获取 Figma API Key
+- 获取方法：在Figma中找到用户设置 -> 安全-> 创建个人访问令牌，并开放必要权限
+- 可参考：[Figma-Context-MCP](https://github.com/GLips/Figma-Context-MCP)
+
+## 安装后使用figma-enginner-installer下载器自动配置 MCP、skills
+安装命令:
+```bash
+figma-enginner-installer -agent <codex|cc> -api-key <FIGMA_API_KEY> [-i <skill_dir>]
+```
+## 参数说明
+
+- `-agent`（必填）
+  - 可选值：`codex` 或 `cc`
+  - 兼容别名：`claude`、`claudecode`（会映射到 `cc`）
+- `-api-key`（必填）
+  - Figma API Key
+- `-i`（可选）
+  - skill 安装目录
+  - 不传则使用 agent 全局目录
+    - `codex`：`~/.agents/skills`
+    - `cc`：`~/.claude/skills`
